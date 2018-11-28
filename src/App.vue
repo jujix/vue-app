@@ -1,17 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <FrontPage msg="Investment interest calculator"/>
+     <div>
+    <h3>Time in years</h3>
+    <vue-slider ref="slider" v-model="value"></vue-slider>
+        <h3>Interest in percents</h3>
+    <vue-slider ref="slider" v-model="value"></vue-slider>
+        <h3>Capital to begin with in euros</h3>
+    <vue-slider ref="slider" v-model="value"></vue-slider>
+        <h3>Additional recurring investments monthly in euros</h3>
+    <vue-slider ref="slider" v-model="value"></vue-slider>
+  </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import FrontPage from './components/InvestmentCalculator.vue'
+import vueSlider from 'vue-slider-component'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    FrontPage,
+    vueSlider
+  },
+    data: {
+    value: 1
   }
 }
 </script>
