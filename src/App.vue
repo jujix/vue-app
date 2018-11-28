@@ -3,13 +3,13 @@
     <FrontPage msg="Investment interest calculator"/>
      <div>
     <h3>Time in years</h3>
-    <vue-slider ref="slider" v-model="value"></vue-slider>
+    <vue-slider min="1" max="70" height="15" ref="slider" v-model="value"></vue-slider>
         <h3>Interest in percents</h3>
-    <vue-slider ref="slider" v-model="value"></vue-slider>
+    <vue-slider min="1" max="20"  height="15" ref="slider" v-model="value"></vue-slider>
         <h3>Capital to begin with in euros</h3>
-    <vue-slider ref="slider" v-model="value"></vue-slider>
+    <vue-slider min="0" max="100000"  interval="1000" height="15" ref="slider" v-model="value"></vue-slider>
         <h3>Additional recurring investments monthly in euros</h3>
-    <vue-slider ref="slider" v-model="value"></vue-slider>
+    <vue-slider min="0" max="10000" height="15" interval="100" ref="slider" v-model="value"></vue-slider>
   </div>
   </div>
 </template>
