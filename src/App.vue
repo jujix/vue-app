@@ -1,15 +1,29 @@
 <template>
   <div id="app">
-    <Heading msg="Investment interest calculator" />
+    <Heading msg="Investment interest calculator"/>
     <div id="sliders">
       <h3>Time in years</h3>
       <vue-slider min="1" max="70" height="15" ref="slider1" v-model="year"></vue-slider>
       <h3>Interest in percents</h3>
       <vue-slider min="1" max="20" height="15" ref="slider2" v-model="interest"></vue-slider>
       <h3>Capital to begin with in euros</h3>
-      <vue-slider min="0" max="100000" interval="1000" height="15" ref="slider3" v-model="startingCapital"></vue-slider>
+      <vue-slider
+        min="0"
+        max="100000"
+        interval="1000"
+        height="15"
+        ref="slider3"
+        v-model="startingCapital"
+      ></vue-slider>
       <h3>Additional recurring investments monthly in euros</h3>
-      <vue-slider min="0" max="100000" height="15" interval="100" ref="slider4" v-model="totalCapital"></vue-slider>
+      <vue-slider
+        min="0"
+        max="100000"
+        height="15"
+        interval="100"
+        ref="slider4"
+        v-model="totalCapital"
+      ></vue-slider>
     </div>
 
     <br>
@@ -21,6 +35,10 @@
       :startingCapital="startingCapital"
       :totalCapital="totalCapital"
     />
+
+    <br>
+    <br>
+    <button v-on:click="calculateEarnings(year, interest, startingCapital)">Calculate earnings</button>
 
     <br>
     <br>
@@ -41,16 +59,28 @@ export default {
     InterestTable,
     vueSlider
   },
+  methods: {
+    calc: function(startingCapital, year, interest, roundToPlaces) {
+      var interestRate = interest / 100 + 1;
+      return (startingCapital * Math.pow(interestRate, year)).toFixed(roundToPlaces);
+    },
+    calculateEarnings: function(year, interest, startingCapital) {
+      var startingCapital = startingCapital;
+      var year = year;
+      var interest = interest;
+      var answer = this.calc(startingCapital, year, interest, 2);
+      alert("Total capital is " + answer);
+    }
+  },
   data() {
     return {
-      year: 1,
-      interest: 1,
-      startingCapital: 0,
+      year: 10,
+      interest: 8,
+      startingCapital: 70000,
       totalCapital: 0
     };
   }
 };
-
 </script>
 
 <style>
