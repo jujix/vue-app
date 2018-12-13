@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'InvestmentCalculator',
+  name: 'Heading',
   props: {
     msg: String
   }
