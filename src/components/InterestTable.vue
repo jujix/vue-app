@@ -12,7 +12,7 @@
             <th>{{year}}</th>
             <th>{{investment}}</th>
             <th>{{startingCapital}}</th>
-            <th>{{totalCapital}}</th>
+            <th>{{recurringInvestment}}</th>
           </tr>
         </tbody>
       </table>
@@ -26,7 +26,7 @@ export default {
     year: Number,
     investment: Number,
     startingCapital: Number,
-    totalCapital: Number
+    recurringInvestment: Number
 
   }
 }
