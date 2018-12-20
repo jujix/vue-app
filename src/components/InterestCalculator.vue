@@ -1,19 +1,35 @@
 <template>
-  <div id="calculateInterestButton">
-    <button
-      v-on:click="calculateTotalEarnings(year, interest, startingCapital, recurringInvestment)"
-    >Calculate earnings</button>
+  <div>
+    <InterestTable
+      :year="year"
+      :investment="interest"
+      :startingCapital="startingCapital"
+      :recurringInvestment="recurringInvestment"
+    />
+
+    <div id="totalCapital">
+      <b>Total accumulated capital: {{ this.calculateTotalEarnings(year, interest, startingCapital, recurringInvestment)}}</b>
+    </div>
   </div>
 </template>
 
 <script>
+import InterestTable from "./InterestTable.vue";
 export default {
   name: "InterestCalculator",
+  components: {
+    InterestTable
+  },
   props: {
     year: Number,
     interest: Number,
     startingCapital: Number,
     recurringInvestment: Number
+  },
+  data() {
+    return {
+      totalAccumulatedCapital: 0
+    };
   },
   methods: {
     calculateStartingCapitalIncome: function(
@@ -68,10 +84,12 @@ export default {
         interest,
         2
       );
-      var totalWealth =
+      var totalAccumulatedCapital = this.totalAccumulatedCapital;
+      var totalAccumulatedCapital =
         Number(gainedInterestFromTheStartOfTheYear) +
         Number(gainedInterestFromRecurringInvestmentsYearly);
-      alert("Total capital is " + totalWealth);
+      console.log("Total capital is " + totalAccumulatedCapital);
+      return totalAccumulatedCapital;
     }
   }
 };
@@ -81,5 +99,9 @@ export default {
 #calculateInterestButton {
   margin-top: 15%;
   margin-bottom: 5%;
+}
+
+#totalCapital {
+  margin-top: 5%;
 }
 </style>

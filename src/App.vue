@@ -26,26 +26,17 @@
       ></vue-slider>
     </div>
 
-    <InterestTable
-      :year="year"
-      :investment="interest"
-      :startingCapital="startingCapital"
-      :recurringInvestment="recurringInvestment"
-    />
-
     <interest-calculator
       :year="year"
       :interest="interest"
       :startingCapital="startingCapital"
       :recurringInvestment="recurringInvestment"
     />
-    <b>Total accumulated capital: {{ recurringInvestment }}</b>
   </div>
 </template>
 
 <script>
 import Heading from "./components/Heading.vue";
-import InterestTable from "./components/InterestTable.vue";
 import vueSlider from "vue-slider-component";
 import InterestCalculator from "./components/InterestCalculator.vue";
 
@@ -53,7 +44,6 @@ export default {
   name: "app",
   components: {
     Heading,
-    InterestTable,
     vueSlider,
     InterestCalculator
   },
