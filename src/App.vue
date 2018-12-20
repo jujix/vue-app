@@ -26,9 +26,6 @@
       ></vue-slider>
     </div>
 
-    <br>
-    <br>
-
     <InterestTable
       :year="year"
       :investment="interest"
@@ -36,15 +33,12 @@
       :recurringInvestment="recurringInvestment"
     />
 
-    <br>
-    <br>
-    <button
-      v-on:click="calculateTotalEarnings(year, interest, startingCapital, recurringInvestment)"
-    >Calculate earnings</button>
-
-    <br>
-    <br>
-
+    <interest-calculator
+      :year="year"
+      :interest="interest"
+      :startingCapital="startingCapital"
+      :recurringInvestment="recurringInvestment"
+    />
     <b>Total accumulated capital: {{ recurringInvestment }}</b>
   </div>
 </template>
@@ -53,64 +47,15 @@
 import Heading from "./components/Heading.vue";
 import InterestTable from "./components/InterestTable.vue";
 import vueSlider from "vue-slider-component";
+import InterestCalculator from "./components/InterestCalculator.vue";
 
 export default {
   name: "app",
   components: {
     Heading,
     InterestTable,
-    vueSlider
-  },
-  methods: {
-    calculateStartingCapitalIncome: function(
-      startingCapital,
-      year,
-      interest,
-      roundToPlaces
-    ) {
-      var interestRate = interest / 100 + 1;
-      var gainedInterestFromTheStartOfTheYear = (
-        startingCapital * Math.pow(interestRate, year)
-      ).toFixed(roundToPlaces);
-      return gainedInterestFromTheStartOfTheYear;
-    },
-    calculateRecurringInterestIncome: function(
-      recurringInvestment,
-      year,
-      interest,
-      roundToPlaces
-    ) {
-      var totalPayments = (recurringInvestment * 12) * year;
-      var months = year * 12;
-      var monthlyRate = interest / 12 / 100;
-
-      var gainedInterestFromMonthlyPayments = (recurringInvestment * (Math.pow(1 + monthlyRate, months) - 1) / monthlyRate).toFixed(roundToPlaces);
-      console.log("gainedInterestFromMonthlyPayments: ", gainedInterestFromMonthlyPayments, " Total payments: ", totalPayments);
-      return gainedInterestFromMonthlyPayments;
-    },
-    calculateTotalEarnings: function(
-      year,
-      interest,
-      startingCapital,
-      recurringInvestment
-    ) {
-      var gainedInterestFromTheStartOfTheYear = this.calculateStartingCapitalIncome(
-        startingCapital,
-        year,
-        interest,
-        2
-      );
-      var gainedInterestFromRecurringInvestmentsYearly = this.calculateRecurringInterestIncome(
-        recurringInvestment,
-        year,
-        interest,
-        2
-      );
-      var totalWealth =
-        Number(gainedInterestFromTheStartOfTheYear) +
-        Number(gainedInterestFromRecurringInvestmentsYearly);
-      alert("Total capital is " + totalWealth);
-    }
+    vueSlider,
+    InterestCalculator
   },
   data() {
     return {
