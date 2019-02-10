@@ -1,5 +1,10 @@
 # vue-project
 
+## About the project
+```
+Calculator that calculates the total amount of accumulated capital after the investment period. 
+```
+
 ## Project setup
 ```
 npm install
