@@ -1,12 +1,5 @@
 <template>
   <div>
-    <InterestTable
-      :year="year"
-      :investment="interest"
-      :startingCapital="startingCapital"
-      :recurringInvestment="recurringInvestment"
-    />
-
     <div id="totalCapital">
       <b>Total accumulated capital: {{ this.calculateTotalEarnings(year, interest, startingCapital, recurringInvestment)}}</b>
     </div>
@@ -14,11 +7,9 @@
 </template>
 
 <script>
-import InterestTable from "./InterestTable.vue";
 export default {
   name: "InterestCalculator",
   components: {
-    InterestTable
   },
   props: {
     year: Number,
@@ -96,10 +87,6 @@ export default {
 </script>
 
 <style scoped>
-#calculateInterestButton {
-  margin-top: 15%;
-  margin-bottom: 5%;
-}
 
 #totalCapital {
   margin-top: 5%;
