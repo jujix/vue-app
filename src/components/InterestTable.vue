@@ -21,14 +21,14 @@
 
 <script>
 export default {
-  name: "InterestTable",
+  name: 'InterestTable',
   props: {
     year: Number,
     investment: Number,
     startingCapital: Number,
     recurringInvestment: Number
   }
-};
+}
 </script>
 
 <style scoped>

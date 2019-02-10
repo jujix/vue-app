@@ -38,26 +38,26 @@
 </template>
 
 <script>
-import Heading from "./components/Heading.vue";
-import vueSlider from "vue-slider-component";
-import InterestCalculator from "./components/InterestCalculator.vue";
+import Heading from './components/Heading.vue'
+import vueSlider from 'vue-slider-component'
+import InterestCalculator from './components/InterestCalculator.vue'
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
     Heading,
     vueSlider,
     InterestCalculator
   },
-  data() {
+  data () {
     return {
       year: 10,
       interest: 8,
       startingCapital: 0,
       recurringInvestment: 1500
-    };
+    }
   }
-};
+}
 </script>
 
 <style>
