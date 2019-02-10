@@ -1,7 +1,7 @@
 <template>
   <div id="app">
+        <div id="sliderContainer">
     <Heading msg="Investment interest calculator"/>
-    <div id="sliderContainer">
     <div id="sliders">
       <h3>Time in years</h3>
       <vue-slider min="1" max="70" height="15" ref="slider1" v-model="year"></vue-slider>
@@ -26,7 +26,6 @@
         v-model="recurringInvestment"
       ></vue-slider>
     </div>
-    </div>
 
     <interest-calculator
       :year="year"
@@ -34,6 +33,7 @@
       :startingCapital="startingCapital"
       :recurringInvestment="recurringInvestment"
     />
+      </div>
   </div>
 </template>
 
@@ -72,5 +72,7 @@ export default {
 #sliderContainer {
   width: 60%;
     margin: auto;
+    border: 3px solid #5D6063;
+     padding: 40px;
 }
 </style>
