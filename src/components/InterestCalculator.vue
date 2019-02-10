@@ -1,7 +1,15 @@
 <template>
   <div>
     <div id="totalCapital">
-      <b>Total accumulated capital: {{ this.calculateTotalEarnings(year, interest, startingCapital, recurringInvestment)}}</b>
+      <h2>
+        <b>
+          Total accumulated capital: {{ this.calculateTotalEarnings(
+          year,
+          interest,
+          startingCapital,
+          recurringInvestment)}}
+        </b>
+      </h2>
     </div>
   </div>
 </template>
@@ -9,8 +17,7 @@
 <script>
 export default {
   name: "InterestCalculator",
-  components: {
-  },
+  components: {},
   props: {
     year: Number,
     interest: Number,
@@ -49,12 +56,6 @@ export default {
         (recurringInvestment * (Math.pow(1 + monthlyRate, months) - 1)) /
         monthlyRate
       ).toFixed(roundToPlaces);
-      console.log(
-        "gainedInterestFromMonthlyPayments: ",
-        gainedInterestFromMonthlyPayments,
-        " Total payments: ",
-        totalPayments
-      );
       return gainedInterestFromMonthlyPayments;
     },
     calculateTotalEarnings: function(
@@ -67,19 +68,18 @@ export default {
         startingCapital,
         year,
         interest,
-        2
+        0
       );
       var gainedInterestFromRecurringInvestmentsYearly = this.calculateRecurringInterestIncome(
         recurringInvestment,
         year,
         interest,
-        2
+        0
       );
       var totalAccumulatedCapital = this.totalAccumulatedCapital;
       var totalAccumulatedCapital =
         Number(gainedInterestFromTheStartOfTheYear) +
         Number(gainedInterestFromRecurringInvestmentsYearly);
-      console.log("Total capital is " + totalAccumulatedCapital);
       return totalAccumulatedCapital;
     }
   }
@@ -87,7 +87,6 @@ export default {
 </script>
 
 <style scoped>
-
 #totalCapital {
   margin-top: 5%;
 }
