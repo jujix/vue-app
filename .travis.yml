@@ -1,11 +1,14 @@
 language: node_js
-
-node_js:
-- node
-
-jobs:
-  include:
-    - stage: deploy_frontend
-      script: ./deploy/frontend.sh
-    - stage: deploy_functions
-      script: ./deploy/functions.sh
+node_js: node
+script: npm run build
+sudo: false
+deploy:
+  provider: s3
+  acl: public_read
+  bucket: awscodepipeline-bucket-vesku
+  region: us-east-2
+  local_dir: dist
+  skip_cleanup: true
+cache:
+  directories:
+- node_modules
