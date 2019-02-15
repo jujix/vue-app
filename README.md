@@ -1,5 +1,7 @@
 # vue-project
 
+[![Build Status](https://travis-ci.org/jujix/vue-app.svg?branch=master)](https://travis-ci.org/jujix/vue-app)
+
 ## About the project
 ```
 Calculator that calculates the total amount of accumulated capital after the investment period. 
@@ -19,9 +21,4 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your tests
-```
-npm run test
 ```
