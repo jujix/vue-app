@@ -71,46 +71,38 @@ export default {
 }
 
 @media (min-width: 1281px) {
-  
  #sliderContainer {
   width: 60%;
     margin: auto;
     border: 3px solid #5D6063;
      padding: 40px;
 }
-  
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-  
   #sliderContainer {
   width: 60%;
     margin: auto;
     border: 3px solid #5D6063;
      padding: 40px;
 }
-  
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  
 #sliderContainer {
   width: 60%;
     margin: auto;
     border: 3px solid #5D6063;
      padding: 40px;
 }
-  
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  
 #sliderContainer {
   width: 60%;
     margin: auto;
     border: 3px solid #5D6063;
      padding: 40px;
 }
-  
 }
 </style>
