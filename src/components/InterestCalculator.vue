@@ -2,7 +2,7 @@
   <div>
     <div id="totalCapital">
       <h2>
-        <b>Total accumulated capital: {{ this.calculateTotalEarnings(year,interest,startingCapital,recurringInvestment)}}</b>
+        <b>Total accumulated capital: {{ this.calculateTotalEarnings(year, interest, startingCapital, recurringInvestment)}}</b>
       </h2>
     </div>
   </div>
@@ -24,55 +24,26 @@ export default {
     }
   },
   methods: {
-    calculateStartingCapitalIncome: function (
-      startingCapital,
-      year,
-      interest,
-      roundToPlaces
-    ) {
-      var interestRate = interest / 100 + 1
-      var gainedInterestFromTheStartOfTheYear = (
+    calculateStartingCapitalIncome: function (startingCapital, year, interest) {
+      const interestRate = interest / 100 + 1
+      const gainedInterestFromTheStartOfTheYear = (
         startingCapital * Math.pow(interestRate, year)
-      ).toFixed(roundToPlaces)
+      ).toFixed(0)
       return gainedInterestFromTheStartOfTheYear
     },
-    calculateRecurringInterestIncome: function (
-      recurringInvestment,
-      year,
-      interest,
-      roundToPlaces
-    ) {
-      var months = year * 12
-      var monthlyRate = interest / 12 / 100
+    calculateRecurringInterestIncome: function (recurringInvestment, year, interest) {
+      const months = year * 12
+      const monthlyRate = interest / 12 / 100
 
-      var gainedInterestFromMonthlyPayments = (
+      const gainedInterestFromMonthlyPayments = (
         (recurringInvestment * (Math.pow(1 + monthlyRate, months) - 1)) /
         monthlyRate
-      ).toFixed(roundToPlaces)
+      ).toFixed(0)
       return gainedInterestFromMonthlyPayments
     },
-    calculateTotalEarnings: function (
-      year,
-      interest,
-      startingCapital,
-      recurringInvestment
-    ) {
-      var gainedInterestFromTheStartOfTheYear = this.calculateStartingCapitalIncome(
-        startingCapital,
-        year,
-        interest,
-        0
-      )
-      var gainedInterestFromRecurringInvestmentsYearly = this.calculateRecurringInterestIncome(
-        recurringInvestment,
-        year,
-        interest,
-        0
-      )
-      var totalAccumulatedCapital = this.totalAccumulatedCapital
-      totalAccumulatedCapital =
-        Number(gainedInterestFromTheStartOfTheYear) +
-        Number(gainedInterestFromRecurringInvestmentsYearly)
+    calculateTotalEarnings: function (year, interest, startingCapital, recurringInvestment) {
+      const totalAccumulatedCapital = Number(this.calculateStartingCapitalIncome(startingCapital, year, interest)) +
+        Number(this.calculateRecurringInterestIncome(recurringInvestment, year, interest))
       return totalAccumulatedCapital
     }
   }
