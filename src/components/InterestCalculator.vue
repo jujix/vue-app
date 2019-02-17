@@ -2,13 +2,7 @@
   <div>
     <div id="totalCapital">
       <h2>
-        <b>
-          Total accumulated capital: {{ this.calculateTotalEarnings(
-          year,
-          interest,
-          startingCapital,
-          recurringInvestment)}}
-        </b>
+        <b>Total accumulated capital: {{ this.calculateTotalEarnings(year,interest,startingCapital,recurringInvestment)}}</b>
       </h2>
     </div>
   </div>
