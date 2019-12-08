@@ -10,28 +10,29 @@
         "test-watch": "npm run test -- --watch"
     },
     "dependencies": {
-        "babel-loader": "^8.0.5",
-        "jest": "^24.1.0",
+        "babel-loader": "^8.0.6",
+        "jest": "^24.9.0",
         "jest-serializer-vue": "^2.0.2",
-        "vue": "^2.5.17",
-        "vue-jest": "^3.0.3",
-        "vue-slider-component": "^2.8.7",
-        "webpack-dev-server": "^3.1.14"
+        "vue": "^2.6.10",
+        "vue-cli": "^2.9.6",
+        "vue-jest": "^3.0.5",
+        "vue-slider-component": "^3.0.46",
+        "webpack-dev-server": "^3.9.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.3.3",
-        "@vue/cli-plugin-babel": "^3.2.0",
-        "@vue/cli-plugin-eslint": "^3.2.0",
-        "@vue/cli-service": "^3.2.0",
-        "@vue/eslint-config-standard": "^4.0.0",
-        "@vue/test-utils": "^1.0.0-beta.29",
+        "@babel/core": "^7.7.5",
+        "@vue/cli-plugin-babel": "^4.1.1",
+        "@vue/cli-plugin-eslint": "^4.1.1",
+        "@vue/cli-service": "^4.1.1",
+        "@vue/eslint-config-standard": "^5.0.1",
+        "@vue/test-utils": "^1.0.0-beta.30",
         "babel-core": "^7.0.0-bridge.0",
-        "babel-eslint": "^10.0.1",
+        "babel-eslint": "^10.0.3",
         "babel-preset-env": "^1.7.0",
         "babel-runtime": "^6.26.0",
-        "eslint": "^5.8.0",
-        "eslint-plugin-vue": "^5.0.0-0",
-        "vue-template-compiler": "^2.5.17"
+        "eslint": "^6.7.2",
+        "eslint-plugin-vue": "^6.0.1",
+        "vue-template-compiler": "^2.6.10"
     },
     "jest": {
         "moduleFileExtensions": [
@@ -49,8 +50,14 @@
             "<rootDir>/node_modules/jest-serializer-vue"
         ],
         "collectCoverage": true,
-        "collectCoverageFrom": ["**/*.{js,vue}", "!**/node_modules/**"],
-        "coverageReporters": ["html", "text-summary"]
+        "collectCoverageFrom": [
+            "**/*.{js,vue}",
+            "!**/node_modules/**"
+        ],
+        "coverageReporters": [
+            "html",
+            "text-summary"
+        ]
     },
     "babel": {
         "env": {
